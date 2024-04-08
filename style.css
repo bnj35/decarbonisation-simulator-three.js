@@ -19,7 +19,7 @@ body
     z-index: 1;
 }
 
-.replay
+#replay
 {
     position: fixed;
     z-index: 99;
@@ -37,5 +37,6 @@ body
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     cursor: pointer;
     backdrop-filter: blur(10px);
-   filter: drop-shadow(0 0 10px whitesmoke);
+    filter: drop-shadow(0 0 10px whitesmoke);
+
 }   

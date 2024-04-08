@@ -1,6 +1,8 @@
 import * as THREE from 'three';
 import Stats from "three/addons/libs/stats.module.js";
 import {createO2,createCO2,createN2, createH20}from './atome.js';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+
 
 
 //debug
@@ -159,24 +161,20 @@ renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 renderer.setClearColor( 0xf0a000);
 
+//replay button
+let button = document.getElementById("replay");
+console.log(button);
 
-/**
- * Debug
- */
-const gui = new GUI()
-gui.add(sphere, 'visible').name('sphere')
-gui.add(probAtome, 'ca').min(0).max(100).step(1).name('carbon').onChange()
-console.log(liquidGroup)
-
-let button = document.createElement('button');
-
-function replay() {
-    button.addEventListener('click', function() {
-    if (spheregroup.children.isCarbon === true) {
-        spheregroup.children.position.set(0,0,0);
-    }
-}
-}
+// function replay() {
+//     button.addEventListener('click', function() {
+//     spheregroup.children.forEach(element => {
+//     if (element.isCarbon === true) {
+//         element.position.set(0,0,0);
+//     }
+//     console.log("replay");
+// });
+// });
+// }
 /**
  * Animate
  */
@@ -189,7 +187,14 @@ const tick = () =>
     //update stats
     stats.update()
 
-    replay()
+    button.addEventListener('click', function() {
+        spheregroup.children.forEach(element => {
+        if (element.isCarbon === true) {
+            element.position.set(0,0,0);
+        }
+        console.log("replay");
+    });
+    });
 
     // Update objects
 spheregroup.children.forEach(element => {
