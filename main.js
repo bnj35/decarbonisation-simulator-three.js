@@ -5,13 +5,9 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import * as lil from 'lil-gui';
 
 
-
-
 //debug
 let stats = Stats()
 document.body.appendChild(stats.dom)
-
-
 
 
 // Canvas
@@ -28,15 +24,6 @@ const ambientLight = new THREE.AmbientLight()
 ambientLight.color = new THREE.Color(0xffffff)
 ambientLight.intensity = 10
 scene.add(ambientLight)
-
-// function getRandomColor() {
-//     const letters = '0123456789ABCDEF';
-//     let color = '#';
-//     for (let i = 0; i < 6; i++) {
-//       color += letters[Math.floor(Math.random() * 16)];
-//     }
-//     return color;
-// }
 
 
 
@@ -113,11 +100,10 @@ for (var i = 0; i < count; i++) {
     cube.position.y = r * Math.sin(angleZ) * Math.sin(angleY);
     cube.position.z = r * Math.cos(angleZ);
     cube.isCarbon = isCarbon;
-
+   
     spheregroup.add(cube);
 }
-
-console.log("azote: " + azote + " oxygene: " + oxygene + " carbon: " + carbon);
+console.log("azote: " + azote + " oxygene: " + oxygene + " carbon: " + carbon); 
 scene.add(spheregroup, liquidGroup)
 /**
  * Sizes
@@ -170,10 +156,9 @@ const gui = new lil.GUI()
 gui.add(sphere,'visible').name('visible');
 
 
-
 //replay button
 let button = document.getElementById("replay");
-console.log(button);
+
 
 
 /**
