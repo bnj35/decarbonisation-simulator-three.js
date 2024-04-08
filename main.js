@@ -2,12 +2,16 @@ import * as THREE from 'three';
 import Stats from "three/addons/libs/stats.module.js";
 import {createO2,createCO2,createN2, createH20}from './atome.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import * as lil from 'lil-gui';
+
 
 
 
 //debug
 let stats = Stats()
 document.body.appendChild(stats.dom)
+
+
 
 
 // Canvas
@@ -160,6 +164,12 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 renderer.setClearColor( 0xf0a000);
+
+//gui
+const gui = new lil.GUI()
+gui.add(sphere,'visible').name('visible');
+
+
 
 //replay button
 let button = document.getElementById("replay");
