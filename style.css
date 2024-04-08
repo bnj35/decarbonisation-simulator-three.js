@@ -16,4 +16,26 @@ body
     top: 0;
     left: 0;
     outline: none;
+    z-index: 1;
 }
+
+.replay
+{
+    position: fixed;
+    z-index: 99;
+    top: 85%;
+    left: 43%;
+    height: auto;
+    width: auto;
+    color: whitesmoke;
+    background-color: rgba(255, 255, 255, 0.111);
+    padding: 10px;
+    border-radius: 10px;
+    border: whitesmoke 1px solid;
+    font-size: larger;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+   filter: drop-shadow(0 0 10px whitesmoke);
+}   

@@ -1,6 +1,4 @@
-import * as THREE from 'three'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import GUI from 'lil-gui'
+import * as THREE from 'three';
 import Stats from "three/addons/libs/stats.module.js";
 import {createO2,createCO2,createN2, createH20}from './atome.js';
 
@@ -11,7 +9,10 @@ document.body.appendChild(stats.dom)
 
 
 // Canvas
-const canvas = document.querySelector('canvas.webgl')
+const canvas = document.querySelector('canvas.webgl');
+if (!canvas) {
+    console.error('Cannot find the canvas element.');
+}
 
 // Scene
 const scene = new THREE.Scene()
@@ -22,15 +23,14 @@ ambientLight.color = new THREE.Color(0xffffff)
 ambientLight.intensity = 10
 scene.add(ambientLight)
 
-//
-function getRandomColor() {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}
+// function getRandomColor() {
+//     const letters = '0123456789ABCDEF';
+//     let color = '#';
+//     for (let i = 0; i < 6; i++) {
+//       color += letters[Math.floor(Math.random() * 16)];
+//     }
+//     return color;
+// }
 
 
 
@@ -66,9 +66,9 @@ for (var i = 0; i < countLiquid; i++) {
     const cube = createH20();
 
 
-    cube.position.x = Math.sin(Math.random() * 5 - 1) * 5;
-    cube.position.y = Math.sin(Math.random() * 5 - 1)* 5;
-    cube.position.z = Math.sin(Math.random() * 5 - 1) * 5;
+    cube.position.x = Math.sin(Math.random() * 5 - 1) * 10;
+    cube.position.y = Math.sin(Math.random() * 5 - 1)* 10;
+    cube.position.z = Math.sin(Math.random() * 5 - 1) * 10;
 
     if (cube.position.distanceTo(sphere.position) <= radius) {
         cube.position.x = Math.sin(Math.random() * 5 - 1) * 5;
@@ -167,6 +167,16 @@ const gui = new GUI()
 gui.add(sphere, 'visible').name('sphere')
 gui.add(probAtome, 'ca').min(0).max(100).step(1).name('carbon').onChange()
 console.log(liquidGroup)
+
+let button = document.createElement('button');
+
+function replay() {
+    button.addEventListener('click', function() {
+    if (spheregroup.children.isCarbon === true) {
+        spheregroup.children.position.set(0,0,0);
+    }
+}
+}
 /**
  * Animate
  */
@@ -178,6 +188,8 @@ const tick = () =>
 
     //update stats
     stats.update()
+
+    replay()
 
     // Update objects
 spheregroup.children.forEach(element => {
