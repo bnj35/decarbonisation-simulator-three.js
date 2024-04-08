@@ -23,12 +23,12 @@ body
 {
     position: fixed;
     z-index: 99;
-    top: 85%;
-    left: 43%;
+    top:84%;
+    left:43%;
     height: auto;
     width: auto;
     color: whitesmoke;
-    background-color: rgba(255, 255, 255, 0.111);
+    background-color: rgba(0, 0, 0, 0.2);
     padding: 10px;
     border-radius: 10px;
     border: whitesmoke 1px solid;
@@ -37,6 +37,14 @@ body
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     cursor: pointer;
     backdrop-filter: blur(10px);
-    filter: drop-shadow(0 0 10px whitesmoke);
-
+    filter: contrast(1.2);
+    transition:ease-in-out 0.25s;
 }   
+
+#replay:hover
+{
+    background-color: rgba(0, 0, 0, 0.1);
+    filter: contrast(2);
+    scale: 1.1;
+    transition:ease-in-out 0.25s;
+}

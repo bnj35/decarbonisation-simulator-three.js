@@ -63,8 +63,8 @@ export function createO2(){
     export function createH20(){
         const geometry = new THREE.SphereGeometry(atomSize, 16, 16);
     
-        const materialH = new THREE.MeshBasicMaterial({ color: 0xFFFFFF , transparent: true, opacity: 1 });
-        const materialO = new THREE.MeshBasicMaterial({ color: 0xFF0000, transparent: true, opacity: 1});
+        const materialH = new THREE.MeshBasicMaterial({ color: 0xFFFFFF , transparent: true, opacity: 0.5 });
+        const materialO = new THREE.MeshBasicMaterial({ color: 0xFF0000, transparent: true, opacity: 0.5});
     
         const sphereC = new THREE.Mesh(geometry, materialO);
         const sphereO1 = new THREE.Mesh(geometry, materialH);

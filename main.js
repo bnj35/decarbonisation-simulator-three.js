@@ -39,7 +39,7 @@ scene.add(ambientLight)
 
 // Mesh
 const count =500;
-const countLiquid = 2000;
+const countLiquid = 10000;
 
 const radius = 1;
 const sphere = new THREE.Mesh(
@@ -68,9 +68,9 @@ for (var i = 0; i < countLiquid; i++) {
     const cube = createH20();
 
 
-    cube.position.x = Math.sin(Math.random() * 5 - 1) * 10;
-    cube.position.y = Math.sin(Math.random() * 5 - 1)* 10;
-    cube.position.z = Math.sin(Math.random() * 5 - 1) * 10;
+    cube.position.x = Math.sin(Math.random() * 5 - 1) * 4;
+    cube.position.y = Math.sin(Math.random() * 5 - 1)* 4;
+    cube.position.z = Math.sin(Math.random() * 5 - 1) * 4;
 
     if (cube.position.distanceTo(sphere.position) <= radius) {
         cube.position.x = Math.sin(Math.random() * 5 - 1) * 5;
@@ -165,16 +165,7 @@ renderer.setClearColor( 0xf0a000);
 let button = document.getElementById("replay");
 console.log(button);
 
-// function replay() {
-//     button.addEventListener('click', function() {
-//     spheregroup.children.forEach(element => {
-//     if (element.isCarbon === true) {
-//         element.position.set(0,0,0);
-//     }
-//     console.log("replay");
-// });
-// });
-// }
+
 /**
  * Animate
  */
